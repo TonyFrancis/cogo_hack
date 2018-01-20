@@ -2,6 +2,7 @@ import { FILTER_ACTION } from '../actions';
 
 const initialState = {
   sort: 'ASCENDING', // value ASCENDING or DESCENDING
+  platform: 'ALL',
 
 }
 
@@ -18,6 +19,8 @@ const filter = (state = initialState, action) => {
     // Update Arena
     case FILTER_ACTION.SCORE_SORT:
       return  { ...state, sort: action.payload };
+    case FILTER_ACTION.PLATFORM_CHOICE:
+      return { ...state, platform: action.payload };
     default:
       return state;
   }

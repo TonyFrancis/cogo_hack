@@ -57,6 +57,13 @@ class Dashborad extends Component {
         return b.score - a.score;
       }
     })
+    filteredData = filteredData.filter( elem => {
+      if (filter.platform === 'ALL') {
+        return true;
+      } else {
+        return filter.platform === elem.platform;
+      }
+    })
     return filteredData
   }
   render() {
