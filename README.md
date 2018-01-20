@@ -1,5 +1,26 @@
 
+# installation
 
+```
+npm install 
+```
+
+# running
+
+```
+npm start
+```
+
+# features
+* sorting based on score 
+* search based on title
+* refresh content
+* filtering based on Platform
+
+# Coding
+Code is written in ReactJS with Redux used as data store containg data from url and necessary filters.
+
+==========================================================================================================
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
