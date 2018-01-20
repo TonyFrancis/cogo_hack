@@ -13,13 +13,6 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
   },
-  paper: {
-    height: 140,
-    width: 100,
-  },
-  control: {
-    padding: theme.spacing.unit * 2,
-  },
 });
 
 /**
@@ -31,11 +24,15 @@ class Dashborad extends Component {
   constructor(props) {
     super(props);
     this.filterGames = this.filterGames.bind(this);
+    this.getData = this.getData.bind(this);
     this.state = {
 
     };
   }
   componentWillMount() {
+    this.getData();
+  }
+  getData(){
     axios.get(URL.gamesarena)
       .then(res => {
          return res.data;
@@ -48,6 +45,10 @@ class Dashborad extends Component {
         this.props.updateList(res);
       })
   }
+  /**
+   * filterGames filters all data based on the filters
+   * @return {[Array]} returns filtered Array
+   */
   filterGames() {
     const { arena, filter } = this.props;
     let filteredData = this.props.arena.sort((a,b) => {
@@ -64,6 +65,9 @@ class Dashborad extends Component {
         return filter.platform === elem.platform;
       }
     })
+    filteredData = filteredData.filter(elem => {
+      return elem.title.indexOf(filter.title) !== -1
+    })
     return filteredData
   }
   render() {
@@ -71,7 +75,7 @@ class Dashborad extends Component {
     return (
       <Grid container className={classes.root}>
         <Grid item sm={12} lg={12}>
-          <ArenaBar />
+          <ArenaBar onRefresh={() => this.getData()}/>
         </Grid>
         {this.filterGames().map((elem, i) => {
           return (

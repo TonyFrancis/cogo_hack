@@ -6,6 +6,15 @@ import Star from 'material-ui-icons/Star';
 import ThumbUp from 'material-ui-icons/ThumbUp';
 import Typography from 'material-ui/Typography';
 
+
+/**
+ * Game data listing item
+ * @param {[string]} title          title of game
+ * @param {[string]} platform        PS3 or PC ...
+ * @param {[number]} score           rating number
+ * @param {[string]} genre           which category belong to
+ * @param {[string]} editors_choice  Y or N
+ */
 const Game = ({title, platform, score, genre, editors_choice}) => (
   <Grid item xs={12} sm={6} lg={3}>
     <Card>
@@ -39,7 +48,5 @@ const Game = ({title, platform, score, genre, editors_choice}) => (
       </CardContent>
     </Card>
   </Grid>
-
 );
-
 export default Game;

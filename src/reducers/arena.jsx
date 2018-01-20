@@ -1,6 +1,6 @@
 import { ARENA_ACTION } from '../actions';
 
-const initialState = ['tony'];
+const initialState = [];
 
 
 /**
